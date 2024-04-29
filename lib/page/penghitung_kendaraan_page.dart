@@ -34,6 +34,15 @@ class PenghitungKendaraanPage extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
               border: Border.all(color: greenColor),
             ),
+            child: Wrap(
+              children: [
+                volumeTable(),
+                volumeTable(),
+                volumeTable(),
+                volumeTable(),
+
+              ],
+            ),
           ),
         ],
       ),
@@ -79,6 +88,49 @@ class PenghitungKendaraanPage extends StatelessWidget {
             ),
             child: Text('+', style: whiteTextStyle.copyWith(fontWeight: semiBold, fontSize: 20),textAlign: TextAlign.center,),
           ),
+        ),
+      ),
+    );
+  }
+
+
+  Widget volumeTable(){
+    return Padding(
+      padding: const EdgeInsets.all(8),
+      child: Container(
+        width: 160,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(14)
+        ),
+        child: Table(
+            border: TableBorder.all(),
+            children: [
+              TableRow(
+                  children :[
+                  Text('', textAlign: TextAlign.center,),
+                  Text('', textAlign: TextAlign.center),
+              ]),
+              TableRow(
+                  children :[
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Q'),
+                          Text('SMP')
+                        ],
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: (){},
+                      child: Container(
+                          color: greyColor,
+                          child: Text('Edit', textAlign: TextAlign.center,)
+                      ),
+                    ),
+              ]),
+            ]
         ),
       ),
     );
