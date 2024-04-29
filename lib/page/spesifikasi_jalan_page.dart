@@ -31,37 +31,43 @@ class SpesifikasiJalanPage extends StatelessWidget {
           MyTextWidget(title: 'Lebar Jalur'),
           MyTextWidget(title: 'Pemisah Arah'),
           MyTextWidget(title: 'Kelas Hambatan Samping'),
-          MyTextWidget(title: 'Kapasitas Hambatan Samping'),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Kapasitas Hambatan Samping', style: blackTextStyle.copyWith(fontWeight: semiBold, fontSize: 14),),
+                SizedBox(height: 8,),
+                Row(
+                  children: [
+                    rowTextField(100),
+                    SizedBox(width: 16,),
+                    Text('Lebar', style: blackTextStyle.copyWith(fontWeight: semiBold, fontSize: 14),),
+                    SizedBox(width: 10,),
+                    rowTextField(150)
+                  ],
+                ),
+              ],
+            ),
+          ),
+          MyTextWidget(title: 'Jumlah Penduduk')
         ],
+      ),
+    );
+  }
+
+  Widget rowTextField(double width){
+    return Container(
+      width: width,
+      child: TextField(
+        decoration: InputDecoration(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(14)
+          ),
+        ),
       ),
     );
   }
 }
 
-class RowTextField extends StatelessWidget {
-  final String title;
-  const RowTextField({super.key, required this.title});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Text(title, style: blackTextStyle.copyWith(fontWeight: semiBold, fontSize: 14),),
-        SizedBox(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8),
-            child: TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(14),
-                    borderSide: BorderSide(color: greenColor, width: 2)
-                ),
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
 
