@@ -12,25 +12,31 @@ class _MainPageState extends State<MainPage> {
 
   final List<Widget> _pages = [
     PengitungPage(),
-    AnalisisPage()
+    AnalisisPage(),
+    KecepatanRataPage(),
+    HasilAnalisisPage(),
+    InformasiPage()
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: _pages[_currentIndex], // Menampilkan halaman yang sesuai dengan indeks yang dipilih
+      body: _pages[_currentIndex],
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.white,
         color: greenColor,
-        animationDuration: Duration(milliseconds: 300),
+        animationDuration: const Duration(milliseconds: 300),
         onTap: (int index) {
           setState(() {
-            _currentIndex = index; // Memperbarui indeks halaman yang aktif
+            _currentIndex = index;
           });
         },
         items: [
-          Icon(Icons.home),
-          Icon(Icons.person),
+          Image.asset('assets/icons/ic_penghitung.png', color: whiteColor, width: 35,),
+          Image.asset('assets/icons/ic_pencarian.png', color: whiteColor, width: 35,),
+          Image.asset('assets/icons/ic_kecepatan_rata.png', color: whiteColor, width: 35,),
+          Image.asset('assets/icons/ic_hasil_analisis.png', color: whiteColor, width: 35,),
+          Image.asset('assets/icons/ic_informasi.png', color: whiteColor, width: 35,),
         ],
       ),
     );

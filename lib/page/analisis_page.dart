@@ -20,10 +20,10 @@ class AnalisisPage extends StatelessWidget {
             ),
             tabs: <Widget>[
               Tab(
-                icon: Icon(Icons.cloud_outlined),
+                icon: Image.asset('assets/icons/ic_document_gear.png', color: whiteColor, width: 35,),
               ),
               Tab(
-                icon: Icon(Icons.beach_access_sharp),
+                icon: Image.asset('assets/icons/ic_document_chart.png', color: whiteColor, width: 35,),
               ),
             ],
           ),

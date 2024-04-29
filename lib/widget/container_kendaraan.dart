@@ -1,7 +1,10 @@
 part of 'widgets.dart';
 
 class ContainerKendaraan extends StatelessWidget {
-  const ContainerKendaraan({super.key});
+  final String title;
+  final Color color;
+
+  const ContainerKendaraan({super.key, required this.title, required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -11,12 +14,12 @@ class ContainerKendaraan extends StatelessWidget {
         padding: EdgeInsets.symmetric( vertical: 16),
         width: 160,
         decoration: BoxDecoration(
-          color: blueColor,
+          color: color,
           borderRadius: BorderRadius.circular(14),
         ),
         child: Column(
           children: [
-            Text('Uhuy', style: whiteTextStyle.copyWith(fontSize: 16, fontWeight: semiBold),),
+            Text(title, style: whiteTextStyle.copyWith(fontSize: 16, fontWeight: semiBold),),
             Icon(Icons.fire_truck_rounded, size: 60,),
 
             Row(
