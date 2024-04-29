@@ -34,7 +34,7 @@ class AnalisisPage extends StatelessWidget {
               child: AnalisisJalanPage(),
             ),
             Center(
-              child: Text('Euyyyyyyyyy'),
+              child: AnalisisHariPage(),
             ),
           ],
         ),
