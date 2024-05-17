@@ -6,8 +6,8 @@ class PengitungPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      initialIndex: 1,
-      length: 3,
+      initialIndex: 0,
+      length: 2,
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: greenColor,
