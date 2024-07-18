@@ -221,4 +221,106 @@ class _ButtonChoosingState extends State<ButtonChoosing> {
   }
 }
 
+class ContainerKendaraan extends StatefulWidget {
+  final String title;
+  final Color color;
 
+  const ContainerKendaraan({Key? key, required this.title, required this.color});
+
+  @override
+  _ContainerKendaraanState createState() => _ContainerKendaraanState();
+}
+
+class _ContainerKendaraanState extends State<ContainerKendaraan> {
+  int counter = 0;
+
+  void incrementCounter() {
+    setState(() {
+      counter++;
+    });
+  }
+
+  void resetCounter() {
+    setState(() {
+      counter = 0;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            padding: EdgeInsets.symmetric(vertical: 16),
+            width: 160,
+            decoration: BoxDecoration(
+              color: widget.color,
+              borderRadius: BorderRadius.circular(14),
+            ),
+            child: Column(
+              children: [
+                Text(
+                  widget.title,
+                  style: whiteTextStyle.copyWith(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                Icon(Icons.fire_truck_rounded, size: 60,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 50,
+                      child: TextField(
+                        readOnly: true,
+                        controller: TextEditingController(text: counter.toString()),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 18),
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(14),
+                            borderSide: BorderSide(color: Colors.white, width: 2),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 8,),
+                    GestureDetector(
+                      onTap: () {
+                        incrementCounter();
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: greenColor,
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        child: Icon(Icons.add, color: Colors.white,),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 8,),
+              ],
+            ),
+          ),
+        ),
+        GestureDetector(
+          onTap: () {
+            resetCounter();
+          },
+          child: Container(
+            padding: EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: Colors.red,
+              borderRadius: BorderRadius.circular(14),
+            ),
+            child: Text('Reset', style: TextStyle(color: Colors.white),),
+          ),
+        ),
+      ],
+    );
+  }
+}
